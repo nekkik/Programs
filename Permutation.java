@@ -1,34 +1,45 @@
 import java.util.*;
 import java.lang.*;
+
 class Permutation
 {
-	static void swap(char[] a, int i, int j)
+	
+	static void Perm(String s, int i , int n)
 	{
-	char s=a[i];
-	a[i]=a[j];
-	a[j]=s;
-	}
-	static void fun(char[] c, int i)
-	{
-		if(i==c.length)
-		{
-			System.out.println(c);
-			
-		}
-		else
-		{
-			for(int j=i;j<c.length;j++)
+
+			if(i==n)
 			{
-				swap(c,i,j);
-				fun(c,i+1);
-				swap(c,i,j);
+				//count++;
+				System.out.println(s);
 			}
-		}
+			else
+			{
+				for(int j=i;j<n;j++)
+				{
+					s=swap(s,i,j);
+					Perm(s,i+1,n);
+					s=swap(s,i,j);
+
+				}
+			}
+	}
+	public static String  swap(String s , int i ,  int j)
+	{
+		char[] a=s.toCharArray();
+		char temp=a[i];
+		a[i]=a[j];
+		a[j]=temp;
+		
+
+
+		return String.valueOf(a);
 	}
 	public static void main(String args[])
 	{
-		String s="abc";
-		int i=0;
-		fun(s.toCharArray(), i);
+		 //int count = 0 ;
+		int i=0, j=0;
+		String s = "abc";
+		int n = s.length();
+		Perm(s,i,n);
 	}
 }
