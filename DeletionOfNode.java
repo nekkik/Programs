@@ -44,7 +44,7 @@ public static void main(String args[])
 		System.out.println("Number to be deleted ");
 		int l  = s1.nextInt();
 		
-		ll.removetheelement(l);
+		ll.removetheelement(l,n);
 
 		ll.display();
 
@@ -118,14 +118,14 @@ public void show(Node root)
 // DELETION OF A NODE //
 
 
-public void removetheelement(int dell)
+public void removetheelement(int dell, int n )
 {
-	del(dell,root);
+	del(dell,root, n);
 }
-public  void del(int dell,Node root)
+public  void del(int dell,Node root, int n)
 {
 	int length = 1 ;
-
+if(n>1){
 Node new_node = root;
 Node temporary_node =root;
 
@@ -156,7 +156,14 @@ System.out.println("Lenght where the element is kept is : "+length);
 
 		}
 
-
+}
+	else
+	{
+		if(dell==root.data)
+		{
+			root.data=0; // 
+		}
+	}
 
 }
 
